@@ -11,18 +11,30 @@ datasource db {
 }
 
 model Order {
-  id        String   @id @default(uuid())
-  title     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-  Courier   Courier? @relation(fields: [courierId], references: [id])
-  courierId String?
+  id         String      @id @default(uuid())
+  title      String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @default(now()) @updatedAt
+  Courier    Courier?    @relation(fields: [courierId], references: [id])
+  courierId  String?
+  orderUnits OrderUnit[]
 }
 
 model Courier {
   id        String   @id @default(uuid())
   name      String
   order     Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+}
+
+model OrderUnit {
+  id        String   @id @default(uuid())
+  title     String
+  amount    Int
+  Order     Order?   @relation(fields: [orderId], references: [id])
+  orderId   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
