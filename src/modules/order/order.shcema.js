@@ -20,9 +20,8 @@ export const assignCourierParams = {
     type: 'object',
     properties: {
         orderId: { type: 'string' },
-        courierId: { type: 'string' }
     },
-    required: ['orderId', 'courierId'],
+    required: ['orderId'],
     additionalProperties: false
 }
 

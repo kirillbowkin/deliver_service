@@ -12,7 +12,7 @@ const orderRoutes = async (server) => {
         handler: getOneOrderHandler
     })
     server.get('/', getOrdersHandler)
-    server.post('/:orderId/assignCourier/:courierId', {
+    server.post('/:orderId/assignCourier', {
         schema: { params: assignCourierParams },
         handler: assignCourierHandler
     })

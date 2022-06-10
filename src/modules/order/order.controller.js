@@ -22,10 +22,10 @@ export const getOrdersHandler = async (req, resp) => {
 }
 
 export const assignCourierHandler = async (req, resp) => {
-    const { orderId, courierId } = req.params
+    const { orderId } = req.params
 
     try {
-        const updOrder = await assignCourier(orderId, courierId)
+        const updOrder = await assignCourier(orderId)
         return updOrder
     } catch (e) {
         resp.code(400).send({
